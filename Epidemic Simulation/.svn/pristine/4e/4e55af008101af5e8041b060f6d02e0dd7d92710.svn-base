@@ -1,0 +1,35 @@
+/**
+ * 
+ */
+package epidemic.progpracticum.view;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
+/**
+ * @author svb140
+ *
+ */
+public class ControlPanel extends JPanel {
+    private JButton myStart;
+    private JButton myStop;
+    private JButton myStep;
+    private JButton myReset;
+    private Timer myTimer;
+    
+    public ControlPanel(Timer aTimer) {
+        super();
+        myTimer = aTimer;
+        myStart = new JButton("Start");
+        myStop = new JButton("Stop");
+        myStep = new JButton("Step");
+        myReset = new JButton("Reset");
+        
+        add(myStart);
+        add(myStop);
+        add(myStep);
+        add(myReset);
+    }
+    
+}

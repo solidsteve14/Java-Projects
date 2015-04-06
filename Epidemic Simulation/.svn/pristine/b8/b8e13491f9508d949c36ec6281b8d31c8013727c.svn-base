@@ -1,0 +1,36 @@
+/**
+ * 
+ */
+package epidemic.progpracticum.model;
+
+/**
+ * @author svb140
+ *
+ */
+public class SimulationWorld {
+
+    /*
+     * number of humans
+     * number of infected humans
+     * number of healthy humans
+     * 
+     * number of birds
+     * number of infected birds
+     * number of healthy birds
+     * 
+     * percent of infected birds
+     * 
+     * simulation frame
+     * list of points
+     * list of entities
+     * 
+     * 
+     */
+    
+    public SimulationWorld() {
+        
+    }
+    /*
+     * intialize all variables
+     */
+}

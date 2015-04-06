@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package epidemic.progpracticum.view;
+
+import javax.swing.JFrame;
+
+/**
+ * @author solid_000
+ *
+ */
+public class SimulationFrame extends JFrame{
+
+}

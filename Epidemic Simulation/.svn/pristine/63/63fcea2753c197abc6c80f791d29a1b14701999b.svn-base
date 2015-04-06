@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+package epidemic.progpracticum.view;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+import epidemic.progpracticum.model.SimParams;
+
+/**
+ * Used for drawing the humans and birds for simulation at after each update.
+ * @author svb140
+ *
+ */
+public class WorldPanel extends JPanel {
+
+    
+    public WorldPanel() {
+        super();
+        setPreferredSize(new Dimension(SimParams.PANEL_PIX_WIDTH, SimParams.PANEL_PIX_HEIGHT));
+        setBackground(Color.white);
+    }
+    
+    public void resetWorld() {
+        /*
+         * FOR THE RESET BUTTON IN CONTROL PANEL
+         * reset array of entities and all sliders and stats panel
+         */
+    }
+    
+    public void paintComponent(final Graphics aGraphics) {
+        /*
+         * for all the entities on the world draw their shape and color in their position.
+         */
+    }
+    
+
+}

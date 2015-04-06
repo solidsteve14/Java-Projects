@@ -1,0 +1,46 @@
+/**
+ * 
+ */
+package epidemic.progpracticum.view;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import javax.swing.Timer;
+
+import epidemic.progpracticum.model.SimulationWorld;
+
+/**
+ * @author solid_000
+ *
+ */
+public class SimulationFrame extends JFrame{
+    private SliderPanel mySliderPanel;
+    private WorldPanel myWorldPanel;
+    private StatsPanel myStatsPanel;
+    private ControlPanel myControlPanel;
+    private SimulationWorld mySimulationWorld;
+    
+    private Timer myTimer;
+
+    
+    public SimulationFrame() {
+        super();
+        mySliderPanel = new SliderPanel();              
+        myControlPanel = new ControlPanel(/*myTimer*/);
+        
+        mySimulationWorld = new SimulationWorld(mySliderPanel);
+        
+        myWorldPanel = new WorldPanel(mySimulationWorld);
+        
+        myStatsPanel = new StatsPanel(myWorldPanel);
+        
+        add(mySliderPanel, BorderLayout.NORTH);
+        add(myWorldPanel, BorderLayout.WEST);
+        add(myStatsPanel, BorderLayout.EAST);
+        add(myControlPanel, BorderLayout.SOUTH);
+        setResizable(false);
+        pack();
+        setVisible(true);
+    }
+}

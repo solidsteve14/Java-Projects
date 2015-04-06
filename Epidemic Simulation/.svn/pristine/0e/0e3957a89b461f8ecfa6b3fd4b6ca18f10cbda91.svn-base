@@ -1,0 +1,131 @@
+/**
+ * Your name. Final project Autumn 2013
+ */
+package epidemic.progpracticum.model;
+
+import java.awt.Point;
+
+/**
+ * Abstract class representing simulation object.
+ * @author Monika
+ * @version Autumn 2013
+ */
+public abstract class AbstractEntity implements Comparable<AbstractEntity> {
+    
+    /**
+     * object's location in the world.
+     */
+    private Point myLocation;
+
+    /**
+     * object's state: whether sick or healthy.
+     */
+    private boolean myIsSick;
+
+    /**
+     * object's species.
+     */
+    private char mySpecies;
+    
+    /**
+     * number of days the object has been sick.
+     */
+    private int myDaysSick;
+    
+    /**
+     * Parameterized constructor that sets object's state to parameters passed.
+     * @param aSpecies is a character denoting the species
+     * @param aSick is a boolean value denoting whether the object is sick or not
+     * @param aDayNum >= 0, the number of days the object has been sick
+     * @param aLocation is the location of the object in the world, 0 <= x < world width, 
+     *                  0 <= y < world height
+     * @custom.post object's state set to parameters passed
+     */
+    public AbstractEntity(final char aSpecies, final boolean aSick, final int aDayNum, 
+                          final Point aLocation) {
+        mySpecies = aSpecies;
+        myIsSick = aSick;
+        myDaysSick = aDayNum;
+        myLocation = aLocation;
+    }
+    
+
+    /**
+     * Shows whether the object is sick or healthy.
+     * @return is true if object is sick, false otherwise
+     */
+    public boolean isSick() {
+        return myIsSick;
+    }
+
+    /**
+     * Changes the state of object's health to sick or healthy.
+     * @param aSick is a boolean value indicating whether an object should be sick or not
+     * @custom.post the object is set to true if aSick is true, false otherwise
+     */
+    public void setMyIsSick(boolean aSick) {
+        myIsSick = aSick;
+    }
+
+    /**
+     * Gets objects's species.
+     * @return is a character indicating object's species
+     */
+    public char getMySpecies() {
+        return mySpecies;
+    }
+
+    /**
+     * Gets objects's location in the world.
+     * @return is a Point indicating object's location in the world
+     */
+    public Point getMyLocation() {
+        return myLocation;
+    }
+
+    /**
+     * Changes the object's location in the world.
+     * @param aLocation is the location in the world, 0 <= x < world width, 
+     *                  0 <= y < world height
+     * @custom.post the object's location is set to aLocation
+     */
+    public void setMyLocation(Point aLocation) {
+        myLocation = aLocation;
+    }
+
+    /**
+     * Gets the number of days the object has been sick.
+     * @return is an integer indicating the number of days the object has been sick
+     */
+    public int getMyDaysSick() {
+        return myDaysSick;
+    }
+
+    /**
+     * Changes the number of days the object has been sick.
+     * @param aDaysSick >=0 is the new number of days
+     * @custom.post the length of object's illness is set to aDaysSick
+     */
+    public void setMyDaysSick(int aDaysSick) {
+        myDaysSick = aDaysSick;
+    }
+
+    /**
+     * Abstract method - moves object's location in the world 
+     *                  according to object's species movement rules.
+     */
+    public abstract void move();
+    
+    /** 
+     * Compares two world objects based on their health status.
+     * @param anOther != null
+     * @return is 1 if self healthy while other sick, 0 if both equal, 
+     *              -1 if self sick while other healthy
+     */
+    @Override
+    public int compareTo(AbstractEntity anOther) {        
+        // TODO
+        return 0;
+    }
+
+}

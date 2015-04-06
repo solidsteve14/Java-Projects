@@ -1,0 +1,25 @@
+/**
+ * 
+ */
+package epidemic.progpracticum.model;
+
+import java.awt.Point;
+
+/**
+ * @author solid_000
+ *
+ */
+public class Human extends AbstractEntity {
+
+    public Human(char aSpecies, boolean aSick, int aDayNum, Point aLocation) {
+        super(aSpecies, aSick, aDayNum, aLocation);
+        // TODO Auto-generated constructor stub
+    }
+
+    @Override
+    public void move() {
+        // TODO Auto-generated method stub
+        
+    }
+
+}

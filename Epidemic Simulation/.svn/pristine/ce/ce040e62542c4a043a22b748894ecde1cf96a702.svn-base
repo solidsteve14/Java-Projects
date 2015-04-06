@@ -1,0 +1,70 @@
+/**
+ * 
+ */
+package epidemic.progpracticum.view;
+
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+
+import epidemic.progpracticum.model.SimParams;
+
+/**
+ * @author svb140
+ *
+ */
+public class SliderPanel extends JPanel {
+    private JSlider mySelectHumans;
+    private JSlider mySelectBirds;
+    private JSlider mySelectPercentSick;
+
+    private JLabel myHumanNum;
+    private JLabel myBirdNum;
+    private JLabel myPercentInfected;
+    
+    public SliderPanel() {
+        super(new GridLayout(2,3));
+        mySelectHumans = new JSlider(JSlider.HORIZONTAL, 0, SimParams.MAX_HUMAN_NUM, 0);
+        mySelectHumans.setMajorTickSpacing(100);
+        mySelectHumans.setMinorTickSpacing(50);
+        mySelectHumans.setPaintTicks(true);
+        mySelectHumans.setPaintLabels(true);
+        
+        mySelectBirds = new JSlider(JSlider.HORIZONTAL, 0, SimParams.MAX_BIRD_NUM, 0);
+        mySelectBirds.setMajorTickSpacing(100);
+        mySelectBirds.setMinorTickSpacing(50);
+        mySelectBirds.setPaintTicks(true);
+        mySelectBirds.setPaintLabels(true);
+        
+        mySelectPercentSick = new JSlider(JSlider.HORIZONTAL, 0, 100, 0);
+        mySelectPercentSick.setMajorTickSpacing(10);
+        mySelectPercentSick.setMinorTickSpacing(5);
+        mySelectPercentSick.setPaintTicks(true);
+        mySelectPercentSick.setPaintLabels(true);
+        
+        // FIX SLIDERS 
+        
+       // myGenerateWorld = new JButton("Generate World");     
+        //myGenerateWorld.setMaximumSize(new Dimension(10, 50));
+        // SET ACTION FOR GENERATE WORLD
+        
+        JLabel humans = new JLabel("Select number of people:");
+        JLabel birds = new JLabel("Select number of birds:");
+        JLabel percent = new JLabel("Infected birds:");
+        add(humans);
+        add(birds);
+        add(percent);
+       
+        add(mySelectHumans);
+        add(mySelectBirds);
+        add(mySelectPercentSick);
+        
+        
+        
+    }
+}

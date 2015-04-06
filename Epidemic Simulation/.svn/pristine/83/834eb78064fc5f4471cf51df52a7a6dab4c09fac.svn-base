@@ -1,0 +1,77 @@
+/**
+ * 
+ */
+package epidemic.progpracticum.model;
+
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
+import epidemic.progpracticum.view.SliderPanel;
+
+/**
+ * @author svb140
+ *
+ */
+public class SimulationWorld {
+
+    private int myHumanCount;
+    private int mySickHumans;
+    private int myHealthyHumans;
+    
+    private int myBirdCount;
+    private int mySickBirds;
+    private int myHealthyBirds;
+    
+    private int myInitialPercentSick;
+    private SliderPanel mySliderPanel;
+    
+    private List<Point> myAllPoints;
+    private List<AbstractEntity> myEntities;
+    
+    public SimulationWorld(final SliderPanel aSliderPanel) {
+
+        mySliderPanel = aSliderPanel;
+        makeAllPoints();
+        makeEntities();
+    }
+   
+    public void makeAllPoints() {
+        myAllPoints = new ArrayList<Point>();
+        for (int i = 0; i < SimParams.PANEL_PIX_WIDTH; i += SimParams.HUMAN_DIM) {
+            for (int j = 0; j < SimParams.PANEL_PIX_HEIGHT; j += SimParams.HUMAN_DIM) {
+                myAllPoints.add(new Point(i, j));
+            }
+        }
+    }
+    
+    public void makeEntities() {
+        myHumanCount = mySliderPanel.getHumans();
+        myBirdCount = mySliderPanel.getBirds();
+        myInitialPercentSick = mySliderPanel.getPercentSick();        
+        myHealthyHumans = mySliderPanel.getHumans();
+        
+        myEntities = new ArrayList<AbstractEntity>();
+        for (int i = 0; i < myHumanCount; i++) {
+            final int index = SimParams.GENERATOR.nextInt(myAllPoints.size() - 1);
+            final Point location = myAllPoints.get(index);
+            final AbstractEntity human =  new Human('h', false, 0, location);
+            
+            myEntities.add(human);
+            myAllPoints.remove(location);
+        }
+        
+        for (int i = 0; i < myBirdCount; i++) {
+            final int index = SimParams.GENERATOR.nextInt(myAllPoints.size() - 1);
+            final Point location = myAllPoints.get(index);
+            final AbstractEntity bird =  new Bird('b', false, 0, location);
+            
+            myEntities.add(bird);
+            myAllPoints.remove(location);
+        }
+    }
+    
+    public List<AbstractEntity> getEntities() {
+        return myEntities;
+    }
+}
